@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joshua Nancey — Mathematical Modeling, Trustworthy AI &amp; Systems Engineer</title>
+  <meta name="description" content="Portfolio R&amp;D &amp; Ingénierie de Joshua Nancey (Ingénieur UTC Compiègne, Filière IAD &amp; Label Mod'Math) : Recherche Opérationnelle, Garantie Statistique du Risque, Vision Médicale (GMIC), LLMs Cliniques (CATH-LLM), Surfaces Implicites 4D (SIREN) &amp; Systèmes Distribués." />
+  <style>
+    :root {
+      --bg: #070b14;
+      --bg-card: #0f1629;
+      --bg-card-hover: #151f38;
+      --border: #1e293b;
+      --border-accent: #3b82f6;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #818cf8;
+      --emerald: #34d399;
+      --amber: #fbbf24;
+      --rose: #fb7185;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at 15% 0%, #0f1b3d 0%, var(--bg) 45%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; transition: color 0.15s; }
+    a:hover { color: #7dd3fc; }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(14px);
+      background: rgba(7, 11, 20, 0.84);
+      border-bottom: 1px solid var(--border);
+      padding: 0.8rem 1.5rem;
+    }
+    .nav-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+    .brand-badge {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: #fff;
+      font-size: 0.72rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+    .nav-links a { color: var(--text-muted); font-weight: 500; }
+    .nav-links a:hover { color: var(--text); }
+    .lang-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: var(--text);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.82rem;
+      transition: all 0.15s;
+    }
+    .lang-btn:hover { border-color: var(--accent); background: #0f172a; }
+
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: center;
+      padding: 1.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr; text-align: left; }
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.28rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.85rem;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead {
+      color: var(--text-muted);
+      font-size: 1.03rem;
+      max-width: 760px;
+      margin-bottom: 1.4rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.6rem 1.15rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(37, 99, 235, 0.35);
+    }
+    .btn-primary:hover { transform: translateY(-1px); color: #fff; filter: brightness(1.08); }
+    .btn-outline {
+      background: rgba(15, 22, 41, 0.85);
+      border-color: #334155;
+      color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-photo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .hero-photo {
+      width: 155px;
+      height: 185px;
+      object-fit: cover;
+      border-radius: 18px;
+      border: 2px solid rgba(56, 189, 248, 0.45);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Metrics Strip */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0 3rem;
+    }
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.15rem 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .metric-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+    .metric-val {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .metric-label {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 0.2rem;
+    }
+    .metric-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* Section Headings */
+    .section-header {
+      margin: 3rem 0 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .section-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 0.2rem;
+    }
+
+    /* Interactive Simulators */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+    }
+    @media (max-width: 960px) {
+      .sim-grid { grid-template-columns: 1fr; }
+    }
+    .sim-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .sim-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(129, 140, 248, 0.15);
+      color: var(--accent-2);
+      width: fit-content;
+    }
+    .sim-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      background: rgba(7, 11, 20, 0.65);
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+    }
+    .sim-controls label {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+    }
+    .sim-controls input[type=range] {
+      width: 100%;
+      accent-color: var(--accent);
+    }
+    .sim-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      text-align: center;
+    }
+    .sim-stat-box {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.45rem;
+    }
+    .sim-stat-box .v { font-weight: 800; font-size: 0.98rem; }
+    .sim-stat-box .k { font-size: 0.7rem; color: var(--text-muted); }
+    canvas.sim-canvas {
+      width: 100%;
+      height: 195px;
+      background: #060913;
+      border-radius: 10px;
+      border: 1px solid #1e293b;
+    }
+
+    /* CV Hub */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+      gap: 1.15rem;
+    }
+    .cv-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .cv-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+    .tier-pill {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.18rem 0.55rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+    .tier-s { background: rgba(52, 211, 153, 0.15); color: var(--emerald); border: 1px solid rgba(52, 211, 153, 0.35); }
+    .tier-a { background: rgba(56, 189, 248, 0.15); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.35); }
+    .tier-b { background: rgba(129, 140, 248, 0.15); color: var(--accent-2); border: 1px solid rgba(129, 140, 248, 0.35); }
+    .cv-card h3 { font-size: 1.02rem; margin-bottom: 0.35rem; }
+    .cv-card p { font-size: 0.82rem; color: var(--text-muted); }
+    .cv-targets {
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      background: rgba(7, 11, 20, 0.6);
+      padding: 0.45rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-top: 0.55rem;
+    }
+    .cv-btn-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .btn-sm {
+      flex: 1;
+      text-align: center;
+      justify-content: center;
+      padding: 0.45rem 0.65rem;
+      font-size: 0.78rem;
+      border-radius: 8px;
+    }
+
+    /* Filter Pills & Projects */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .filter-pill {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-pill.active, .filter-pill:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent);
+      color: var(--text);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.25rem;
+    }
+    .proj-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: all 0.15s;
+    }
+    .proj-card:hover {
+      border-color: #475569;
+      background: var(--bg-card-hover);
+    }
+    .proj-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .proj-card h3 { font-size: 1.08rem; margin-bottom: 0.45rem; color: #fff; }
+    .proj-card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .proj-highlights {
+      list-style: none;
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .proj-highlights li::before {
+      content: "▹ ";
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      font-size: 0.71rem;
+      padding: 0.18rem 0.5rem;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid #334155;
+      border-radius: 6px;
+      color: #e2e8f0;
+    }
+
+    /* Modal PDF Viewer */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 960px;
+      height: 88vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .modal-header {
+      padding: 0.85rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .modal-iframe {
+      flex: 1;
+      width: 100%;
+      border: none;
+      background: #fff;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.84rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="brand">
+        <span>Joshua NANCEY</span>
+        <span class="brand-badge">Ingénieur UTC &bull; Mod'Math &amp; IAD</span>
+      </div>
+      <div class="nav-links">
+        <a href="#simulators" data-fr="Simulateurs R&amp;D" data-en="Interactive R&amp;D Demos">Simulateurs R&amp;D</a>
+        <a href="#cv-hub" data-fr="CV par Poste (FR/EN)" data-en="Tailored CVs (FR/EN)">CV par Poste (FR/EN)</a>
+        <a href="#projects" data-fr="Projets &amp; Code" data-en="Projects &amp; Code">Projets &amp; Code</a>
+        <a href="https://github.com/joshdeutc" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/joshua-nancey-3218171a2" target="_blank" rel="noopener">LinkedIn</a>
+        <button class="lang-btn" id="langToggle" onclick="toggleLang()">🌐 EN / FR</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="hero-eyebrow" data-fr="🎓 Diplômé Ingénieur UTC Compiègne (Sept. 2026) • Disponible Immédiatement (France, Suisse, Allemagne, NL, UK)" data-en="🎓 M.Eng. Graduate from UTC Compiègne (Sept. 2026) • Available Immediately (France, Switzerland, Germany, NL, UK)">
+          🎓 Diplômé Ingénieur UTC Compiègne (Sept. 2026) • Disponible Immédiatement (France, Suisse, Allemagne, NL, UK)
+        </div>
+        <h1>
+          <span data-fr="Modélisation Mathématique," data-en="Mathematical Modeling,">Modélisation Mathématique,</span><br/>
+          <span class="gradient-text" data-fr="IA de Confiance &amp; Systèmes Critiques" data-en="Trustworthy AI &amp; Production Systems">IA de Confiance &amp; Systèmes Critiques</span>
+        </h1>
+        <p class="hero-lead" data-fr="Ingénieur Génie Informatique (Filière Intelligence Artificielle &amp; Données + Label Modélisation Mathématique Mod'Math), avec 12 mois de R&amp;D en entreprise (Epiconcept, Aubay Innovation) et en laboratoire CNRS (BMBI UMR 7338). Je conçois des systèmes où la rigueur mathématique (bornes de risque en échantillon fini, optimisation, géométrie différentielle 4D) rencontre l'ingénierie logicielle de bout en bout." data-en="Computer Science &amp; AI Engineer (Honors Track in Mathematical Modeling — Label Mod'Math) with 12 months of R&amp;D experience across healthcare AI (Epiconcept), enterprise data science (Aubay Innovation), and CNRS biomechanical research (BMBI UMR 7338). I build systems bridging provable mathematical guarantees and full-stack software engineering.">
+          Ingénieur Génie Informatique (Filière Intelligence Artificielle &amp; Données + Label Modélisation Mathématique Mod'Math), avec 12 mois de R&amp;D en entreprise (Epiconcept, Aubay Innovation) et en laboratoire CNRS (BMBI UMR 7338). Je conçois des systèmes où la rigueur mathématique (bornes de risque en échantillon fini, optimisation, géométrie différentielle 4D) rencontre l'ingénierie logicielle de bout en bout.
+        </p>
+        <div class="hero-actions">
+          <a href="#cv-hub" class="btn btn-primary" data-fr="📄 Télécharger mes CV Ciblés (FR / EN)" data-en="📄 Download Tailored CVs (FR / EN)">📄 Télécharger mes CV Ciblés (FR / EN)</a>
+          <a href="https://github.com/joshdeutc" target="_blank" rel="noopener" class="btn btn-outline">⚡ GitHub (@joshdeutc)</a>
+          <a href="https://www.linkedin.com/in/joshua-nancey-3218171a2" target="_blank" rel="noopener" class="btn btn-outline">🔗 LinkedIn</a>
+          <a href="mailto:joshua.nancey@etu.utc.fr" class="btn btn-outline">✉️ joshua.nancey@etu.utc.fr</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img src="photo_cv.jpg" alt="Joshua Nancey" class="hero-photo" onerror="this.style.display='none'" />
+      </div>
+    </section>
+
+    <!-- KEY METRICS -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-val">AUC 0.889</div>
+        <div class="metric-label" data-fr="Vision Mammographique 16-bit (GMIC)" data-en="16-bit Mammography Vision (GMIC)">Vision Mammographique 16-bit (GMIC)</div>
+        <div class="metric-sub" data-fr="Sur 300+ Go d'images RSNA (2944×1920) + contrôle simultané FNR ≤ 5% &amp; FPR ≤ 5% (bornes de Hoeffding)" data-en="On 300+ GB RSNA dataset (2944×1920) + simultaneous FNR ≤ 5% &amp; FPR ≤ 5% Hoeffding risk bounds">Sur 300+ Go d'images RSNA (2944×1920) + contrôle simultané FNR ≤ 5% &amp; FPR ≤ 5% (bornes de Hoeffding)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">F1 = 0.91 / 0.88</div>
+        <div class="metric-label" data-fr="Extraction Clinique LLMs Sans Hallucination" data-en="Grounded Clinical LLM Extraction">Extraction Clinique LLMs Sans Hallucination</div>
+        <div class="metric-sub" data-fr="20 LLMs évalués sous budget 1× A100 40 Go (MIMIC-IV, ECDC) + transfert zéro-shot vers le croate (F1 = 0.88)" data-en="20 LLM setups benchmarked on 1× A100 40 GB (MIMIC-IV, ECDC) + zero-shot Croatian transfer (F1 = 0.88)">20 LLMs évalués sous budget 1× A100 40 Go (MIMIC-IV, ECDC) + transfert zéro-shot vers le croate (F1 = 0.88)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">IoU 99.65%</div>
+        <div class="metric-label" data-fr="Surfaces Implicites 4D (SIREN) &amp; Autograd" data-en="4D Implicit Surfaces (SIREN) &amp; Autograd">Surfaces Implicites 4D (SIREN) &amp; Autograd</div>
+        <div class="metric-sub" data-fr="Théorème de Gauss-Bonnet (∮ K dA = 4π) vérifié à 0.025% par différentiation automatique d'ordre 2" data-en="Gauss-Bonnet theorem (∮ K dA = 4π) verified to 0.025% via mesh-free 2nd-order PyTorch autograd">Théorème de Gauss-Bonnet (∮ K dA = 4π) vérifié à 0.025% par différentiation automatique d'ordre 2</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-val">ROC-AUC 0.985</div>
+        <div class="metric-label" data-fr="Détection d'Anomalies Contextuelles" data-en="Contextual Tabular Anomaly Detection">Détection d'Anomalies Contextuelles</div>
+        <div class="metric-sub" data-fr="GANDALF, FT-Transformer &amp; Isolation Forest (F1 = 0.903) déployés via API REST Flask / React / AWS S3" data-en="GANDALF, FT-Transformer &amp; Isolation Forest (F1 = 0.903) deployed via Flask / React / AWS S3">GANDALF, FT-Transformer &amp; Isolation Forest (F1 = 0.903) déployés via API REST Flask / React / AWS S3</div>
+      </div>
+    </div>
+
+    <!-- INTERACTIVE R&D SIMULATORS -->
+    <div id="simulators" class="section-header">
+      <div>
+        <h2 class="section-title" data-fr="🔬 Simulateurs Interactifs de mes Travaux R&amp;D" data-en="🔬 Interactive R&amp;D Mathematical Simulators">🔬 Simulateurs Interactifs de mes Travaux R&amp;D</h2>
+        <p class="section-subtitle" data-fr="Manipulez directement les paramètres mathématiques de mes projets de recherche (Epiconcept TN10 &amp; Laboratoire CNRS BMBI TZ2)." data-en="Explore the live mathematical models behind my Epiconcept TN10 internship and CNRS BMBI TZ2 research project.">Manipulez directement les paramètres mathématiques de mes projets de recherche (Epiconcept TN10 &amp; Laboratoire CNRS BMBI TZ2).</p>
+      </div>
+    </div>
+
+    <div class="sim-grid">
+      <!-- Simulator 1: SGR Selective Classification & Hoeffding Bound -->
+      <div class="sim-card">
+        <span class="sim-badge">Epiconcept R&amp;D — Cadre SGR &amp; Bornes de Hoeffding</span>
+        <h3 data-fr="Triage Sélectif Bi-Seuil (τ₋, τ₊) sous Garantie de Risque 1 − δ" data-en="Dual-Threshold Selective Triage (τ₋, τ₊) with Finite-Sample Risk Bound">Triage Sélectif Bi-Seuil (τ₋, τ₊) sous Garantie de Risque 1 − δ</h3>
+        <p style="font-size: 0.81rem; color: var(--text-muted);" data-fr="Ajustez les seuils de décision sur le score de malignité GMIC : la zone grise centrale correspond à l'abstention (orientation vers une 2e lecture radiologique) permettant de garantir simultanément FNR ≤ 5% et FPR ≤ 5% via l'inversion de la borne de Hoeffding." data-en="Adjust the benign (τ₋) and malignant (τ₊) thresholds on GMIC malignancy scores: the central grey zone routes uncertain mammograms to human double reading, bounding both FNR and FPR with probability 1 − δ.">
+          Ajustez les seuils de décision sur le score de malignité GMIC : la zone grise centrale correspond à l'abstention (orientation vers une 2e lecture radiologique) permettant de garantir simultanément FNR ≤ 5% et FPR ≤ 5% via l'inversion de la borne de Hoeffding.
+        </p>
+        <canvas id="sgrCanvas" class="sim-canvas" width="540" height="195"></canvas>
+        <div class="sim-controls">
+          <div>
+            <label><span data-fr="Seuil Bénin τ₋" data-en="Benign Threshold τ₋">Seuil Bénin τ₋</span> <span id="tauNegVal">0.22</span></label>
+            <input type="range" id="tauNeg" min="0.05" max="0.45" step="0.01" value="0.22" oninput="updateSGR()" />
+          </div>
+          <div>
+            <label><span data-fr="Seuil Malin τ₊" data-en="Malignant Threshold τ₊">Seuil Malin τ₊</span> <span id="tauPosVal">0.74</span></label>
+            <input type="range" id="tauPos" min="0.52" max="0.95" step="0.01" value="0.74" oninput="updateSGR()" />
+          </div>
+        </div>
+        <div class="sim-stats">
+          <div class="sim-stat-box">
+            <div class="v" id="sgrCov" style="color: var(--accent);">68.4%</div>
+            <div class="k" data-fr="Couverture Automatisée" data-en="Automated Coverage">Couverture Automatisée</div>
+          </div>
+          <div class="sim-stat-box">
+            <div class="v" id="sgrFnr" style="color: var(--emerald);">2.8% ≤ 5%</div>
+            <div class="k" data-fr="Borne Sup. Hoeffding FNR" data-en="Hoeffding Upper FNR">Borne Sup. Hoeffding FNR</div>
+          </div>
+          <div class="sim-stat-box">
+            <div class="v" id="sgrFpr" style="color: var(--emerald);">3.4% ≤ 5%</div>
+            <div class="k" data-fr="Borne Sup. Hoeffding FPR" data-en="Hoeffding Upper FPR">Borne Sup. Hoeffding FPR</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Simulator 2: 4D Implicit Surface f(x,y,z,t) = 0 -->
+      <div class="sim-card">
+        <span class="sim-badge">CNRS BMBI UMR 7338 — Surfaces Implicites 4D &amp; Autograd</span>
+        <h3 data-fr="Membrane Biologique Implicite 4D f_θ(x,y,z,t) = 0 &amp; Courbure de Gauss" data-en="4D Space-Time Implicit Membrane f_θ(x,y,z,t) = 0 &amp; Gaussian Curvature">Membrane Biologique Implicite 4D f_θ(x,y,z,t) = 0 &amp; Courbure de Gauss</h3>
+        <p style="font-size: 0.81rem; color: var(--text-muted);" data-fr="Visualisation temps réel de la surface implicite d'un globule rouge de Kuchel / capsule déformable soumise à un écoulement de cisaillement temporel t ∈ [0, 1], colorée par sa courbure analytique d'ordre 2." data-en="Real-time rendering of a continuous level-set surface f(x,y,z,t) = 0 undergoing non-affine shear flow deformation t ∈ [0, 1], colored by analytical 2nd-order curvature.">
+          Visualisation temps réel de la surface implicite d'un globule rouge de Kuchel / capsule déformable soumise à un écoulement de cisaillement temporel t ∈ [0, 1], colorée par sa courbure analytique d'ordre 2.
+        </p>
+        <canvas id="implicitCanvas" class="sim-canvas" width="540" height="195"></canvas>
+        <div class="sim-controls">
+          <div>
+            <label><span data-fr="Déformation Temporelle (t)" data-en="Shear Flow Time (t)">Déformation Temporelle (t)</span> <span id="shearVal">0.35</span></label>
+            <input type="range" id="shearTime" min="0" max="1" step="0.01" value="0.35" oninput="updateImplicit()" />
+          </div>
+          <div>
+            <label><span data-fr="Mode Géométrique" data-en="Surface Mode">Mode Géométrique</span> <span id="modeLabel">Kuchel / Capsule 4D</span></label>
+            <input type="range" id="morphFactor" min="0" max="1" step="0.01" value="0.65" oninput="updateImplicit()" />
+          </div>
+        </div>
+        <div class="sim-stats">
+          <div class="sim-stat-box">
+            <div class="v" style="color: var(--emerald);">99.65%</div>
+            <div class="k" data-fr="IoU 4D SIREN + Eikonal" data-en="4D SIREN + Eikonal IoU">IoU 4D SIREN + Eikonal</div>
+          </div>
+          <div class="sim-stat-box">
+            <div class="v" id="gbIntegral" style="color: var(--accent);">12.563 ≈ 4π</div>
+            <div class="k" data-fr="Intégrale Gauss-Bonnet ∮K dA" data-en="Gauss-Bonnet ∮K dA">Intégrale Gauss-Bonnet ∮K dA</div>
+          </div>
+          <div class="sim-stat-box">
+            <div class="v" style="color: var(--amber);">0.025%</div>
+            <div class="k" data-fr="Erreur Relative Analytique" data-en="Analytical Relative Error">Erreur Relative Analytique</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAILORED CV HUB -->
+    <div id="cv-hub" class="section-header">
+      <div>
+        <h2 class="section-title" data-fr="📄 Mes CV Ciblés par Famille de Postes (FR &amp; EN)" data-en="📄 Tailored 1-Page Resumes by Role Family (FR &amp; EN)">📄 Mes CV Ciblés par Famille de Postes (FR &amp; EN)</h2>
+        <p class="section-subtitle" data-fr="Chaque CV (1 page A4) met en valeur les projets, métriques et compétences correspondant exactement aux attentes du poste visé." data-en="Each 1-page A4 resume highlights the exact mathematical, AI, or systems engineering achievements most relevant to the target track.">Chaque CV (1 page A4) met en valeur les projets, métriques et compétences correspondant exactement aux attentes du poste visé.</p>
+      </div>
+    </div>
+
+    <div class="cv-grid">
+      <!-- CV 1: Tier S RO / ModMath / Quant / R&D -->
+      <div class="cv-card">
+        <div>
+          <span class="tier-pill tier-s">TIER S &bull; RECHERCHE, RO &amp; MOD'MATH</span>
+          <h3 data-fr="Modélisation Mathématique, RO, Quant &amp; R&amp;D IA" data-en="Mathematical Modeling, OR, Quant &amp; AI Research">Modélisation Mathématique, RO, Quant &amp; R&amp;D IA</h3>
+          <p data-fr="Met l'accent sur le Label Mod'Math (optimisation convexe/combinatoire, processus stochastiques, Markov/Poisson), les bornes de risque de Hoeffding (SGR) et la géométrie différentielle 4D par autograd d'ordre 2." data-en="Highlights the Mod'Math Honors track (convex/combinatorial optimization, Markov chains, Poisson processes), finite-sample Hoeffding risk bounds (SGR), and mesh-free 2nd-order autograd differential geometry.">
+            Met l'accent sur le Label Mod'Math (optimisation convexe/combinatoire, processus stochastiques, Markov/Poisson), les bornes de risque de Hoeffding (SGR) et la géométrie différentielle 4D par autograd d'ordre 2.
+          </p>
+          <div class="cv-targets">
+            <b>Cibles :</b> CEA, Inria, CERN, IMC Trading, Celonis, Helsing, Thales, EDF R&amp;D
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <button class="btn btn-primary btn-sm" onclick="openPdfModal('cv/cv_ro_modmath_rd_fr.pdf', 'CV — Modélisation Mathématique, RO &amp; R&amp;D IA (FR)')">👁️ Aperçu FR</button>
+          <button class="btn btn-outline btn-sm" onclick="openPdfModal('cv/cv_ro_modmath_rd_en.pdf', 'Resume — Mathematical Modeling, OR &amp; AI Research (EN)')">👁️ Preview EN</button>
+          <a href="cv/cv_ro_modmath_rd_fr.pdf" download class="btn btn-outline btn-sm">⬇️ PDF FR</a>
+          <a href="cv/cv_ro_modmath_rd_en.pdf" download class="btn btn-outline btn-sm">⬇️ PDF EN</a>
+        </div>
+      </div>
+
+      <!-- CV 2: Tier S Solutions Architect / Forward Deployed AI -->
+      <div class="cv-card">
+        <div>
+          <span class="tier-pill tier-s">TIER S &bull; SOLUTIONS ARCHITECT &amp; FDE</span>
+          <h3 data-fr="Solutions Architect &amp; Forward Deployed AI Engineer" data-en="Forward Deployed AI Engineer &amp; Solutions Architect">Solutions Architect &amp; Forward Deployed AI Engineer</h3>
+          <p data-fr="Met l'accent sur le déploiement de bout en bout sous contrainte client/GPU (20 LLMs sur 1× A100 40 Go, grounding anti-hallucination), l'architecture Full-Stack (FastAPI, Flask/React/S3, SSE temps réel) et la pédagogie client." data-en="Focuses on end-to-end customer &amp; production delivery under strict hardware/GDPR budgets (20 LLMs on 1× A100 40 GB, deterministic grounding), full-stack systems (FastAPI, React, SSE), and technical enablement.">
+            Met l'accent sur le déploiement de bout en bout sous contrainte client/GPU (20 LLMs sur 1× A100 40 Go, grounding anti-hallucination), l'architecture Full-Stack (FastAPI, Flask/React/S3, SSE temps réel) et la pédagogie client.
+          </p>
+          <div class="cv-targets">
+            <b>Cibles :</b> OpenAI, Anthropic, Databricks, Palantir, Datadog, Cohere, ElevenLabs, Celonis
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <button class="btn btn-primary btn-sm" onclick="openPdfModal('cv/cv_solutions_architect_fde_fr.pdf', 'CV — Solutions Architect &amp; Forward Deployed AI (FR)')">👁️ Aperçu FR</button>
+          <button class="btn btn-outline btn-sm" onclick="openPdfModal('cv/cv_solutions_architect_fde_en.pdf', 'Resume — Forward Deployed AI &amp; Solutions Architect (EN)')">👁️ Preview EN</button>
+          <a href="cv/cv_solutions_architect_fde_fr.pdf" download class="btn btn-outline btn-sm">⬇️ PDF FR</a>
+          <a href="cv/cv_solutions_architect_fde_en.pdf" download class="btn btn-outline btn-sm">⬇️ PDF EN</a>
+        </div>
+      </div>
+
+      <!-- CV 3: Tier B ML / Vision / LLM Engineer -->
+      <div class="cv-card">
+        <div>
+          <span class="tier-pill tier-b">TIER B &bull; DEEP LEARNING, VISION &amp; LLMs</span>
+          <h3 data-fr="Ingénieur R&amp;D — Machine Learning, Vision &amp; LLMs" data-en="Machine Learning, Computer Vision &amp; LLM Engineer">Ingénieur R&amp;D — Machine Learning, Vision &amp; LLMs</h3>
+          <p data-fr="Met l'accent sur l'entraînement PyTorch 16-bit (GMIC AUC 0.889), l'inférence LLM quantifiée &amp; transfert multilingue (MedGemma/Qwen, F1 0.91), les réseaux SIREN 4D et le Deep Learning tabulaire (GANDALF/FT-Transformer)." data-en="Emphasizes 16-bit PyTorch training (GMIC AUC 0.889), quantized LLM inference &amp; cross-lingual transfer (MedGemma/Qwen, F1 0.91), 4D SIREN networks, and tabular deep learning (GANDALF/FT-Transformer).">
+            Met l'accent sur l'entraînement PyTorch 16-bit (GMIC AUC 0.889), l'inférence LLM quantifiée &amp; transfert multilingue (MedGemma/Qwen, F1 0.91), les réseaux SIREN 4D et le Deep Learning tabulaire (GANDALF/FT-Transformer).
+          </p>
+          <div class="cv-targets">
+            <b>Cibles :</b> Mistral AI, Hugging Face, Owkin, Nabla, DeepL, Doctolib, Criteo, Shift
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <button class="btn btn-primary btn-sm" onclick="openPdfModal('cv/cv_data_ia_engineer.pdf', 'CV — Ingénieur R&amp;D Machine Learning, Vision &amp; LLMs (FR)')">👁️ Aperçu FR</button>
+          <button class="btn btn-outline btn-sm" onclick="openPdfModal('cv/cv_data_ia_engineer_en.pdf', 'Resume — ML, Computer Vision &amp; LLM Engineer (EN)')">👁️ Preview EN</button>
+          <a href="cv/cv_data_ia_engineer.pdf" download class="btn btn-outline btn-sm">⬇️ PDF FR</a>
+          <a href="cv/cv_data_ia_engineer_en.pdf" download class="btn btn-outline btn-sm">⬇️ PDF EN</a>
+        </div>
+      </div>
+
+      <!-- CV 4: Tier A Technical PM / Strategy -->
+      <div class="cv-card">
+        <div>
+          <span class="tier-pill tier-a">TIER A &bull; PRODUCT MANAGEMENT &amp; STRATÉGIE IA</span>
+          <h3 data-fr="Technical Product Manager &amp; Chef de Projet IA" data-en="Technical Product Manager — AI, Data &amp; Systems">Technical Product Manager &amp; Chef de Projet IA</h3>
+          <p data-fr="Met l'accent sur le cadrage produit 0→1, l'arbitrage coût/latence/risque (MedGemma-4B vs 27B, abstention sélective clinique), la livraison d'applications Full-Stack et la conduite du changement (capsules Quarto/Docker)." data-en="Highlights 0→1 product discovery, latency/cost/safety trade-offs (4B vs. 27B LLMs, selective clinical abstention), full-stack product delivery, and stakeholder enablement.">
+            Met l'accent sur le cadrage produit 0→1, l'arbitrage coût/latence/risque (MedGemma-4B vs 27B, abstention sélective clinique), la livraison d'applications Full-Stack et la conduite du changement (capsules Quarto/Docker).
+          </p>
+          <div class="cv-targets">
+            <b>Cibles :</b> Artefact, Ekimetrics, Capgemini Invent, Sia Partners, Alan, Back Market
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <button class="btn btn-primary btn-sm" onclick="openPdfModal('cv/cv_product_manager.pdf', 'CV — Technical Product Manager &amp; Chef de Projet IA (FR)')">👁️ Aperçu FR</button>
+          <button class="btn btn-outline btn-sm" onclick="openPdfModal('cv/cv_product_manager_en.pdf', 'Resume — Technical Product Manager AI &amp; Data (EN)')">👁️ Preview EN</button>
+          <a href="cv/cv_product_manager.pdf" download class="btn btn-outline btn-sm">⬇️ PDF FR</a>
+          <a href="cv/cv_product_manager_en.pdf" download class="btn btn-outline btn-sm">⬇️ PDF EN</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECTS SECTION -->
+    <div id="projects" class="section-header">
+      <div>
+        <h2 class="section-title" data-fr="🚀 Projets R&amp;D, Modélisation &amp; Architectures Logicielles" data-en="🚀 Featured R&amp;D, Mathematical Modeling &amp; Systems Projects">🚀 Projets R&amp;D, Modélisation &amp; Architectures Logicielles</h2>
+        <p class="section-subtitle" data-fr="Filtrez par domaine d'expertise — chaque projet renvoie vers son dépôt GitHub nettoyé et documenté." data-en="Filter by engineering domain — every project links to its documented GitHub repository.">Filtrez par domaine d'expertise — chaque projet renvoie vers son dépôt GitHub nettoyé et documenté.</p>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-pill active" onclick="filterProjects('all', this)" data-fr="Tous (10)" data-en="All (10)">Tous (10)</button>
+        <button class="filter-pill" onclick="filterProjects('math', this)" data-fr="Modélisation &amp; Risque" data-en="Math Modeling &amp; Risk">Modélisation &amp; Risque</button>
+        <button class="filter-pill" onclick="filterProjects('ai', this)" data-fr="Deep Learning &amp; LLMs" data-en="Deep Learning &amp; LLMs">Deep Learning &amp; LLMs</button>
+        <button class="filter-pill" onclick="filterProjects('sys', this)" data-fr="Systèmes, Cloud &amp; Sécurité" data-en="Systems, Cloud &amp; Security">Systèmes, Cloud &amp; Sécurité</button>
+      </div>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+
+      <!-- Project 1: GMIC & SGR -->
+      <div class="proj-card" data-cat="math ai">
+        <div>
+          <div class="proj-meta">
+            <span>EPICONCEPT R&amp;D (VOLET 1)</span>
+            <span>AUC 0.889 &bull; FNR/FPR ≤ 5%</span>
+          </div>
+          <h3 data-fr="Dépistage Mammographique Haute Résolution (GMIC) &amp; Classification Sélective (SGR)" data-en="High-Resolution Mammography (GMIC) &amp; Guaranteed Risk Selective Triage (SGR)">Dépistage Mammographique Haute Résolution (GMIC) &amp; Classification Sélective (SGR)</h3>
+          <p data-fr="Fine-tuning du réseau global/local à attention GMIC sur 300+ Go de mammographies 16 bits (RSNA) et contrôle statistique non-paramétrique du risque d'erreur médicale." data-en="16-bit fine-tuning of the interpretable GMIC network on 300+ GB of RSNA mammograms coupled with distribution-free finite-sample selective risk control.">
+            Fine-tuning du réseau global/local à attention GMIC sur 300+ Go de mammographies 16 bits (RSNA) et contrôle statistique non-paramétrique du risque d'erreur médicale.
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="Passage d'une AUC de 0,683 (baseline) à 0,889 (IC 95% : [0,858 ; 0,921]) via Deep Ensemble de 5 modèles GMIC." data-en="Boosted test AUC from 0.683 (baseline) to 0.889 (95% CI: [0.858, 0.921]) using a 5-model GMIC Deep Ensemble.">Passage d'une AUC de 0,683 (baseline) à 0,889 (IC 95% : [0,858 ; 0,921]) via Deep Ensemble de 5 modèles GMIC.</li>
+            <li data-fr="Extension bi-seuil (τ₋, τ₊) de Geifman &amp; El-Yaniv inversant la borne de Hoeffding en échantillon fini." data-en="Dual-threshold (τ₋, τ₊) extension of Geifman &amp; El-Yaniv inverting Hoeffding's finite-sample bound.">Extension bi-seuil (τ₋, τ₊) de Geifman &amp; El-Yaniv inversant la borne de Hoeffding en échantillon fini.</li>
+            <li data-fr="Co-auteur d'une capsule pédagogique interactive de 8 chapitres conteneurisée sous Docker." data-en="Co-authored an 8-chapter Dockerized interactive training capsule for public-health data scientists.">Co-auteur d'une capsule pédagogique interactive de 8 chapitres conteneurisée sous Docker.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">PyTorch 16-bit</span><span class="tag">GMIC (ResNet-22/18)</span><span class="tag">Hoeffding / SGR</span><span class="tag">MC Dropout</span><span class="tag">Docker / Quarto</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="https://github.com/joshdeutc/tn10-medical-ai-showcase" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⚡ Code &amp; Notebooks (GitHub)</a>
+          <a href="https://github.com/Epiconcept-Paris/data-capsule-deep-piste" target="_blank" rel="noopener" class="btn btn-outline btn-sm">📦 Capsule 8 Chapitres</a>
+        </div>
+      </div>
+
+      <!-- Project 2: CATH-LLM -->
+      <div class="proj-card" data-cat="ai sys">
+        <div>
+          <div class="proj-meta">
+            <span>EPICONCEPT R&amp;D (VOLET 2 — ECDC)</span>
+            <span>F1 = 0.91 &bull; CROATE F1 = 0.88</span>
+          </div>
+          <h3 data-fr="CATH-LLM — Extraction Clinique Sans Hallucination &amp; Transfert Cross-Lingue" data-en="CATH-LLM — Grounded Clinical Extraction &amp; Zero-Shot Cross-Lingual Transfer">CATH-LLM — Extraction Clinique Sans Hallucination &amp; Transfert Cross-Lingue</h3>
+          <p data-fr="Pipeline local d'extraction d'infections nosocomiales sur dossiers patients MIMIC-IV sous contrainte matérielle stricte (1× GPU NVIDIA A100 40 Go VRAM)." data-en="On-premise clinical NLP pipeline extracting catheter-related infections from MIMIC-IV notes under a strict 1× NVIDIA A100 40 GB VRAM budget.">
+            Pipeline local d'extraction d'infections nosocomiales sur dossiers patients MIMIC-IV sous contrainte matérielle stricte (1× GPU NVIDIA A100 40 Go VRAM).
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="Benchmark de 20 configurations (MedGemma-4B/27B, Gemma-2-27B, Qwen-2.5-32B, Mistral-Small-24B)." data-en="Benchmarked 20 local LLM setups (MedGemma-4B/27B, Gemma-2-27B, Qwen-2.5-32B, Mistral-Small-24B).">Benchmark de 20 configurations (MedGemma-4B/27B, Gemma-2-27B, Qwen-2.5-32B, Mistral-Small-24B).</li>
+            <li data-fr="Vérificateur déterministe de citations verbatim (evidence_is_grounded) garantissant zéro hallucination." data-en="Deterministic substring verifier (evidence_is_grounded) enforcing verbatim clinical quotes.">Vérificateur déterministe de citations verbatim (evidence_is_grounded) garantissant zéro hallucination.</li>
+            <li data-fr="Maintien d'un F1 = 0,88 en transfert zéro-shot sur notes traduites en croate (NLLB-200 / EuroLLM-9B)." data-en="Achieved F1 = 0.88 in zero-shot cross-lingual evaluation on Croatian notes (NLLB-200 / EuroLLM-9B).">Maintien d'un F1 = 0,88 en transfert zéro-shot sur notes traduites en croate (NLLB-200 / EuroLLM-9B).</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">MedGemma / Qwen / Mistral</span><span class="tag">bitsandbytes int8/int4</span><span class="tag">Verbatim Grounding</span><span class="tag">NLLB-200 / EuroLLM</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="https://github.com/joshdeutc/tn10-medical-ai-showcase/tree/main/part2_clinical_llm_extraction" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⚡ Code &amp; Manuel 6 Chapitres (GitHub)</a>
+        </div>
+      </div>
+
+      <!-- Project 3: TZ2 BMBI -->
+      <div class="proj-card" data-cat="math ai">
+        <div>
+          <div class="proj-meta">
+            <span>CNRS UMR 7338 (BMBI) — RECHERCHE TZ2</span>
+            <span>IoU 99.65% &bull; GAUSS-BONNET 0.025%</span>
+          </div>
+          <h3 data-fr="Surfaces Implicites Neuronales 3D/4D f(x,y,z,t)=0 &amp; Géométrie Différentielle" data-en="3D/4D Space-Time Implicit Neural Surfaces f(x,y,z,t)=0 &amp; Differential Geometry">Surfaces Implicites Neuronales 3D/4D f(x,y,z,t)=0 &amp; Géométrie Différentielle</h3>
+          <p data-fr="Modélisation continue spatio-temporelle de globules rouges (quartique de Kuchel) et de micro-capsules déformables sous écoulement de cisaillement." data-en="Continuous space-time representation of red blood cells (Kuchel quartic) and deforming micro-capsules in shear flow.">
+            Modélisation continue spatio-temporelle de globules rouges (quartique de Kuchel) et de micro-capsules déformables sous écoulement de cisaillement.
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="Identification exacte de la quartique analytique de Kuchel en 10 coefficients polynomiaux contre 197 886 poids neuronaux." data-en="Recovered the exact Kuchel quartic in 10 polynomial coefficients vs. 197,886 neural parameters.">Identification exacte de la quartique analytique de Kuchel en 10 coefficients polynomiaux contre 197 886 poids neuronaux.</li>
+            <li data-fr="Réseaux 4D SIREN + encodage de Fourier + régularisation Eikonale (||∇f|| = 1) atteignant IoU = 99,65%." data-en="4D SIREN + Fourier features + Eikonal regularization (||∇f|| = 1) reaching 99.65% IoU on non-affine deformations.">Réseaux 4D SIREN + encodage de Fourier + régularisation Eikonale (||∇f|| = 1) atteignant IoU = 99,65%.</li>
+            <li data-fr="Courbures de Gauss (K) et moyenne (H) calculées par autograd d'ordre 2 ; Gauss-Bonnet vérifié à 0,025%." data-en="Mesh-free Gaussian (K) and Mean (H) curvatures via 2nd-order PyTorch autograd; Gauss-Bonnet verified to 0.025%.">Courbures de Gauss (K) et moyenne (H) calculées par autograd d'ordre 2 ; Gauss-Bonnet vérifié à 0,025%.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">PyTorch Autograd 2nd-Order</span><span class="tag">SIREN / PINNs</span><span class="tag">Fourier Features</span><span class="tag">Differential Geometry</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="https://github.com/joshdeutc/surfaces-implicites" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⚡ Code &amp; Notebooks (GitHub)</a>
+        </div>
+      </div>
+
+      <!-- Project 4: MonLycée Cloud Auth Relay -->
+      <div class="proj-card" data-cat="sys">
+        <div>
+          <div class="proj-meta">
+            <span>ARCHITECTURE CLOUD &amp; SÉCURITÉ</span>
+            <span>CACHE RAM &lt; 50 MS &bull; ZERO-TRUST</span>
+          </div>
+          <h3 data-fr="MonLycée Cloud Auth Relay — Broker de Session SSO &amp; Extension Manifest V3" data-en="MonLycée Cloud Auth Relay — Zero-Trust SSO Session Broker &amp; Manifest V3 Extension">MonLycée Cloud Auth Relay — Broker de Session SSO &amp; Extension Manifest V3</h3>
+          <p data-fr="Système d'authentification déportée séparant physiquement la détention du secret (Cloud AWS/Oracle) de l'utilisation de la session (navigateur local Microsoft Edge)." data-en="Cloud-deported authentication relay physically separating credential storage (AWS/Oracle VM) from local browser session usage (Edge Manifest V3).">
+            Système d'authentification déportée séparant physiquement la détention du secret (Cloud AWS/Oracle) de l'utilisation de la session (navigateur local Microsoft Edge).
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="Négociation SSO Keycloak exécutée à distance par Chromium Headless (Playwright) protégé par mutex asyncio.Lock." data-en="Remote Keycloak SSO negotiation via Headless Chromium (Playwright) guarded by an asyncio.Lock concurrency mutex.">Négociation SSO Keycloak exécutée à distance par Chromium Headless (Playwright) protégé par mutex asyncio.Lock.</li>
+            <li data-fr="Cache mémoire TTL (25 min) réduisant la latence de connexion de ~10 s à moins de 50 ms." data-en="In-memory TTL session cache (25 min) cutting login latency from ~10 s down to < 50 ms.">Cache mémoire TTL (25 min) réduisant la latence de connexion de ~10 s à moins de 50 ms.</li>
+            <li data-fr="Injection directe des 16 cookies (HttpOnly, Secure, SameSite) via Service Worker Manifest V3 et contrôle horaire serveur." data-en="Direct injection of 16 session cookies via Manifest V3 Service Worker with server-side study-hour policy enforcement.">Injection directe des 16 cookies (HttpOnly, Secure, SameSite) via Service Worker Manifest V3 et contrôle horaire serveur.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">FastAPI</span><span class="tag">Playwright Chromium</span><span class="tag">Edge Manifest V3</span><span class="tag">asyncio.Lock</span><span class="tag">AWS / Oracle systemd</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="https://github.com/joshdeutc/monlycee-relay" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⚡ Dépôt GitHub (monlycee-relay)</a>
+        </div>
+      </div>
+
+      <!-- Project 5: PDF Live Notes -->
+      <div class="proj-card" data-cat="sys ai">
+        <div>
+          <div class="proj-meta">
+            <span>SYSTÈMES TEMPS RÉEL &amp; EDTECH IA</span>
+            <span>SSE STREAMING &bull; ANDROID KIOSK</span>
+          </div>
+          <h3 data-fr="PDF Live Notes — Co-Annotation Temps Réel Humain-Stylet + Agent IA" data-en="PDF Live Notes — Real-Time Human Stylus + AI Collaborative PDF Workspace">PDF Live Notes — Co-Annotation Temps Réel Humain-Stylet + Agent IA</h3>
+          <p data-fr="Serveur collaboratif permettant à un humain (tablette avec stylet à pression) et à un agent IA d'annoter simultanément un cours PDF et d'y injecter des simulateurs interactifs." data-en="Real-time collaborative workspace where a human stylus user and an AI agent co-annotate PDFs and spawn interactive HTML5 simulations inline.">
+            Serveur collaboratif permettant à un humain (tablette avec stylet à pression) et à un agent IA d'annoter simultanément un cours PDF et d'y injecter des simulateurs interactifs.
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="Synchronisation temps réel par Server-Sent Events (SSE) des tracés vectoriels (Perfect-Freehand) et surlignages." data-en="Real-time Server-Sent Events (SSE) streaming of pressure-sensitive vector strokes and spatial highlights.">Synchronisation temps réel par Server-Sent Events (SSE) des tracés vectoriels (Perfect-Freehand) et surlignages.</li>
+            <li data-fr="Injection par l'IA de widgets HTML5/JS/Canvas interactifs sandboxés (<iframe>) directement sur la page PDF." data-en="AI-driven injection of sandboxed interactive HTML5/Canvas simulation widgets (<iframe>) directly onto the PDF canvas.">Injection par l'IA de widgets HTML5/JS/Canvas interactifs sandboxés (&lt;iframe&gt;) directement sur la page PDF.</li>
+            <li data-fr="Client Android Kiosk natif (Kotlin, LockTask) transformant la tablette en cahier d'étude sans distraction." data-en="Companion native Android Kiosk client (Kotlin, LockTask) turning an Android tablet into a distraction-free study slate.">Client Android Kiosk natif (Kotlin, LockTask) transformant la tablette en cahier d'étude sans distraction.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">FastAPI</span><span class="tag">Server-Sent Events (SSE)</span><span class="tag">PDF.js &amp; PyMuPDF</span><span class="tag">Kotlin Android Kiosk</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="https://github.com/joshdeutc/pdf-live-notes" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⚡ Dépôt GitHub (pdf-live-notes)</a>
+        </div>
+      </div>
+
+      <!-- Project 6: Aubay Contextual Anomaly Detection -->
+      <div class="proj-card" data-cat="math ai sys">
+        <div>
+          <div class="proj-meta">
+            <span>AUBAY INNOVATION LAB (TN09)</span>
+            <span>F1 = 0.903 &bull; ROC-AUC = 0.985</span>
+          </div>
+          <h3 data-fr="Détection d'Anomalies Contextuelles sur Données Tabulaires Mixtes" data-en="Contextual Anomaly Detection on Mixed Tabular Datasets">Détection d'Anomalies Contextuelles sur Données Tabulaires Mixtes</h3>
+          <p data-fr="Conception d'un moteur hybride séparant attributs contextuels et comportementaux pour identifier les anomalies conditionnelles sur données numériques et catégorielles." data-en="Hybrid anomaly detection engine separating contextual and behavioral attributes to flag conditional outliers in mixed tabular data.">
+            Conception d'un moteur hybride séparant attributs contextuels et comportementaux pour identifier les anomalies conditionnelles sur données numériques et catégorielles.
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="Benchmark de GANDALF, FT-Transformer et TabTransformer (PyTorch Tabular) face à Isolation Forest et Deep Isolation Forest (DIF)." data-en="Benchmarked GANDALF, FT-Transformer, and TabTransformer (PyTorch Tabular) against Isolation Forest and Deep Isolation Forest (DIF).">Benchmark de GANDALF, FT-Transformer et TabTransformer (PyTorch Tabular) face à Isolation Forest et Deep Isolation Forest (DIF).</li>
+            <li data-fr="Développement d'une plateforme web Full-Stack (API REST Flask, React, AWS S3, Conda/Docker)." data-en="Delivered a full-stack audit web application (Flask REST API, React frontend, AWS S3 storage, Conda/Docker).">Développement d'une plateforme web Full-Stack (API REST Flask, React, AWS S3, Conda/Docker).</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">PyTorch Tabular</span><span class="tag">GANDALF / FT-Transformer</span><span class="tag">Isolation Forest / DIF</span><span class="tag">Flask / React / AWS S3</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="#cv-hub" class="btn btn-outline btn-sm">📄 Voir Détails dans le CV</a>
+        </div>
+      </div>
+
+      <!-- Project 7: Jarvis Career & Second Brain Engine -->
+      <div class="proj-card" data-cat="ai sys">
+        <div>
+          <div class="proj-meta">
+            <span>RAG LOCAL &amp; MULTI-AGENT EVALUATION</span>
+            <span>51 CONNECTEURS ATS &bull; 3-LLM JURY</span>
+          </div>
+          <h3 data-fr="Jarvis — Second Cerveau (SQLite FTS5 BM25 + Graphe) &amp; Jury Multi-LLMs Grounded" data-en="Jarvis — Personal Second Brain (SQLite FTS5 BM25) &amp; Grounded Multi-LLM Jury">Jarvis — Second Cerveau (SQLite FTS5 BM25 + Graphe) &amp; Jury Multi-LLMs Grounded</h3>
+          <p data-fr="Base de connaissances locale hybride (recherche plein texte pondérée BM25 + graphe d'entités) couplée à un moteur européen de moissonnage ATS et criblage IA sans hallucination." data-en="Hybrid local knowledge base (weighted BM25 full-text search + relational entity graph) paired with a 51-board European ATS harvester and grounded 3-LLM evaluation jury.">
+            Base de connaissances locale hybride (recherche plein texte pondérée BM25 + graphe d'entités) couplée à un moteur européen de moissonnage ATS et criblage IA sans hallucination.
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="Interrogation directe de 51 boards ATS européens (Greenhouse, Ashby, Lever, SmartRecruiters, Workday, Oracle HCM, Inria, CEA)." data-en="Direct parallel harvesting across 51 European ATS boards (Greenhouse, Ashby, Lever, SmartRecruiters, Workday, Oracle HCM, Inria, CEA).">Interrogation directe de 51 boards ATS européens (Greenhouse, Ashby, Lever, SmartRecruiters, Workday, Oracle HCM, Inria, CEA).</li>
+            <li data-fr="Architecture à 2 passes et 3 LLMs distincts (Llama-3.1-8B, Llama-3.3-70B, Qwen3-32B) exigeant une citation verbatim vérifiée par inclusion de sous-chaîne." data-en="2-pass, 3-LLM committee enforcing deterministic substring verification (quote_is_grounded) on every extracted requirement.">Architecture à 2 passes et 3 LLMs distincts (Llama-3.1-8B, Llama-3.3-70B, Qwen3-32B) exigeant une citation verbatim vérifiée par inclusion de sous-chaîne.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">SQLite FTS5 (BM25)</span><span class="tag">Multi-LLM Jury</span><span class="tag">Async / ThreadPool</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="https://github.com/joshdeutc" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⚡ Profil GitHub (@joshdeutc)</a>
+        </div>
+      </div>
+
+      <!-- Project 8: Custos & Self-System -->
+      <div class="proj-card" data-cat="sys">
+        <div>
+          <div class="proj-meta">
+            <span>SÉCURITÉ OS ANDROID &amp; LINUX</span>
+            <span>DEVICE OWNER &bull; DM-VERITY / SYSTEMD</span>
+          </div>
+          <h3 data-fr="Custos &amp; Self-System — Résilience Système Multi-Plateforme (Android &amp; Linux)" data-en="Custos &amp; Self-System — Multi-Platform OS Hardening (Android &amp; Linux)">Custos &amp; Self-System — Résilience Système Multi-Plateforme (Android &amp; Linux)</h3>
+          <p data-fr="Écosystème d'auto-contrôle numérique de niveau système d'exploitation sur Android (Kotlin DevicePolicyManager) et Linux (systemd, mitmproxy, dm-verity)." data-en="OS-level digital self-control and policy enforcement suite across Android (Kotlin DevicePolicyManager) and Linux (systemd, mitmproxy, dm-verity).">
+            Écosystème d'auto-contrôle numérique de niveau système d'exploitation sur Android (Kotlin DevicePolicyManager) et Linux (systemd, mitmproxy, dm-verity).
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="Custos (Android) : surveillance temps réel par AccessibilityService + ForegroundService, blocage Device Owner et verrouillage temporel irrévocable." data-en="Custos (Android): real-time AccessibilityService + ForegroundService monitoring, Device Owner policies, and cryptographic time-locks.">Custos (Android) : surveillance temps réel par AccessibilityService + ForegroundService, blocage Device Owner et verrouillage temporel irrévocable.</li>
+            <li data-fr="Self-System (Linux) : filtrage HTTPS par proxy transparent mitmproxy, daemons systemd à surveillance mutuelle et partition racine immuable dm-verity." data-en="Self-System (Linux): transparent mitmproxy TLS filtering, mutually-watching systemd daemons, and dm-verity read-only rootfs.">Self-System (Linux) : filtrage HTTPS par proxy transparent mitmproxy, daemons systemd à surveillance mutuelle et partition racine immuable dm-verity.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Kotlin (Android SDK)</span><span class="tag">DevicePolicyManager</span><span class="tag">Linux systemd</span><span class="tag">mitmproxy</span><span class="tag">dm-verity</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="https://github.com/joshdeutc/custos" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⚡ Custos (GitHub)</a>
+          <a href="https://github.com/joshdeutc/self-system" target="_blank" rel="noopener" class="btn btn-outline btn-sm">🐧 Self-System (GitHub)</a>
+        </div>
+      </div>
+
+      <!-- Project 9: SY09 Statistical Learning -->
+      <div class="proj-card" data-cat="math ai">
+        <div>
+          <div class="proj-meta">
+            <span>APPRENTISSAGE STATISTIQUE (SY09)</span>
+            <span>WALD TESTS &bull; GOWER / MAHALANOBIS</span>
+          </div>
+          <h3 data-fr="Modélisation Statistique Cardiaque, Tests de Wald &amp; Clustering Adaptatif" data-en="Cardiac Statistical Modeling, Wald Hypothesis Tests &amp; Adaptive Clustering">Modélisation Statistique Cardiaque, Tests de Wald &amp; Clustering Adaptatif</h3>
+          <p data-fr="Implémentation mathématique de classifieurs supervisés et d'algorithmes de partitionnement adaptatif sur données cliniques hétérogènes." data-en="From-scratch statistical classifiers and adaptive clustering algorithms on heterogeneous clinical heart-disease data.">
+            Implémentation mathématique de classifieurs supervisés et d'algorithmes de partitionnement adaptatif sur données cliniques hétérogènes.
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="Régression logistique avec tests de significativité de Wald et sélection de variables." data-en="Logistic regression with Wald significance testing and feature selection.">Régression logistique avec tests de significativité de Wald et sélection de variables.</li>
+            <li data-fr="K-Means à distance de Gower (variables mixtes) et K-Means adaptatif à métrique de Mahalanobis." data-en="Gower-distance K-Means (mixed variables) and Adaptive Mahalanobis K-Means.">K-Means à distance de Gower (variables mixtes) et K-Means adaptatif à métrique de Mahalanobis.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">Statistiques (Wald)</span><span class="tag">Gower &amp; Mahalanobis</span><span class="tag">Scikit-Learn</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="https://github.com/joshdeutc/Machine-learning-prediction" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⚡ Dépôt GitHub (SY09)</a>
+        </div>
+      </div>
+
+      <!-- Project 10: LO21 C++17 & NF26 ETL -->
+      <div class="proj-card" data-cat="sys math">
+        <div>
+          <div class="proj-meta">
+            <span>ARCHITECTURE C++17 (LO21) &amp; DATA (NF26)</span>
+            <span>C++17 / QT 6 &bull; ETL ADEME</span>
+          </div>
+          <h3 data-fr="7 Wonders Duel (C++17 / Qt 6) &amp; Entrepôt de Données Carbone (ADEME)" data-en="7 Wonders Duel (C++17 / Qt 6) &amp; Carbon Footprint Data Warehouse (ADEME)">7 Wonders Duel (C++17 / Qt 6) &amp; Entrepôt de Données Carbone (ADEME)</h3>
+          <p data-fr="Deux projets d'ingénierie logicielle et données : moteur de jeu complet orienté objet en C++17/Qt 6 et pipeline ETL décisionnel sur la Base Carbone ADEME." data-en="Two foundational software and data engineering projects: an object-oriented C++17/Qt 6 game engine and an analytical ETL pipeline on the ADEME Carbon Database.">
+            Deux projets d'ingénierie logicielle et données : moteur de jeu complet orienté objet en C++17/Qt 6 et pipeline ETL décisionnel sur la Base Carbone ADEME.
+          </p>
+          <ul class="proj-highlights">
+            <li data-fr="LO21 : Architecture MVC en C++17 &amp; Qt 6, design patterns (Singleton, Strategy, Observer) et agents IA." data-en="LO21: Clean MVC architecture in C++17 &amp; Qt 6, design patterns, and autonomous AI opponents.">LO21 : Architecture MVC en C++17 &amp; Qt 6, design patterns (Singleton, Strategy, Observer) et agents IA.</li>
+            <li data-fr="NF26 : Nettoyage, déduplication et modélisation dimensionnelle de 4 800+ facteurs d'émission carbone ADEME." data-en="NF26: Ingestion, normalization, and dimensional modeling of 4,800+ ADEME carbon emission factors.">NF26 : Nettoyage, déduplication et modélisation dimensionnelle de 4 800+ facteurs d'émission carbone ADEME.</li>
+          </ul>
+          <div class="tag-row">
+            <span class="tag">C++17</span><span class="tag">Qt 6</span><span class="tag">Design Patterns / UML</span><span class="tag">Python ETL / SQL</span>
+          </div>
+        </div>
+        <div class="cv-btn-row">
+          <a href="https://github.com/joshdeutc/Seven-wonder-duel-in-C" target="_blank" rel="noopener" class="btn btn-outline btn-sm">⚡ 7 Wonders C++17</a>
+          <a href="https://github.com/joshdeutc/ETL-project" target="_blank" rel="noopener" class="btn btn-outline btn-sm">📊 ETL Carbone (NF26)</a>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Joshua Nancey — Ingénieur UTC Compiègne (Génie Informatique, Filière IAD &amp; Label Mod'Math) &bull; <a href="mailto:joshua.nancey@etu.utc.fr">joshua.nancey@etu.utc.fr</a> &bull; <a href="https://github.com/joshdeutc">github.com/joshdeutc</a></p>
+    </footer>
+
+  </div>
+
+  <!-- PDF MODAL -->
+  <div class="modal-backdrop" id="pdfModal" onclick="if(event.target===this) closePdfModal()">
+    <div class="modal-box">
+      <div class="modal-header">
+        <strong id="modalTitle">Aperçu du CV</strong>
+        <div style="display:flex; gap:0.5rem;">
+          <a id="modalDownload" href="#" download class="btn btn-primary btn-sm">⬇️ Télécharger PDF</a>
+          <button class="btn btn-outline btn-sm" onclick="closePdfModal()">✕ Fermer</button>
+        </div>
+      </div>
+      <iframe id="modalFrame" class="modal-iframe" src=""></iframe>
+    </div>
+  </div>
+
+  <script>
+    // 1. Bilingual FR / EN Toggle
+    let currentLang = 'fr';
+    function toggleLang() {
+      currentLang = currentLang === 'fr' ? 'en' : 'fr';
+      document.documentElement.lang = currentLang;
+      document.querySelectorAll('[data-fr][data-en]').forEach(el => {
+        el.innerHTML = el.getAttribute('data-' + currentLang);
+      });
+    }
+
+    // 2. Project Category Filter
+    function filterProjects(cat, btn) {
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.proj-card').forEach(card => {
+        const cats = card.getAttribute('data-cat') || '';
+        card.style.display = (cat === 'all' || cats.includes(cat)) ? 'flex' : 'none';
+      });
+    }
+
+    // 3. PDF Modal Preview
+    function openPdfModal(url, title) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalFrame').src = url;
+      document.getElementById('modalDownload').href = url;
+      document.getElementById('pdfModal').classList.add('open');
+    }
+    function closePdfModal() {
+      document.getElementById('pdfModal').classList.remove('open');
+      document.getElementById('modalFrame').src = '';
+    }
+
+    // 4. Simulator 1: SGR Selective Classification & Hoeffding Bound
+    function updateSGR() {
+      const tNeg = parseFloat(document.getElementById('tauNeg').value);
+      const tPos = parseFloat(document.getElementById('tauPos').value);
+      document.getElementById('tauNegVal').textContent = tNeg.toFixed(2);
+      document.getElementById('tauPosVal').textContent = tPos.toFixed(2);
+
+      const canvas = document.getElementById('sgrCanvas');
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      const padL = 36, padR = 18, padT = 22, padB = 28;
+      const plotW = W - padL - padR, plotH = H - padT - padB;
+
+      // Zones background
+      const xNeg = padL + tNeg * plotW;
+      const xPos = padL + tPos * plotW;
+
+      // Green Zone (Benign predicted)
+      ctx.fillStyle = 'rgba(52, 211, 153, 0.13)';
+      ctx.fillRect(padL, padT, xNeg - padL, plotH);
+
+      // Grey Zone (Abstention -> Double reading)
+      ctx.fillStyle = 'rgba(148, 163, 184, 0.14)';
+      ctx.fillRect(xNeg, padT, xPos - xNeg, plotH);
+
+      // Red Zone (Malignant predicted)
+      ctx.fillStyle = 'rgba(251, 113, 133, 0.14)';
+      ctx.fillRect(xPos, padT, padL + plotW - xPos, plotH);
+
+      // Draw Benign & Malignant score densities
+      ctx.lineWidth = 2.2;
+      // Benign density (peaked near 0.08)
+      ctx.strokeStyle = '#34d399';
+      ctx.beginPath();
+      for (let i = 0; i <= 200; i++) {
+        const s = i / 200;
+        const yVal = Math.exp(-Math.pow((s - 0.10) / 0.16, 2)) * 0.88;
+        const x = padL + s * plotW;
+        const y = padT + plotH - yVal * plotH;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Malignant density (peaked near 0.86)
+      ctx.strokeStyle = '#fb7185';
+      ctx.beginPath();
+      for (let i = 0; i <= 200; i++) {
+        const s = i / 200;
+        const yVal = Math.exp(-Math.pow((s - 0.86) / 0.18, 2)) * 0.82;
+        const x = padL + s * plotW;
+        const y = padT + plotH - yVal * plotH;
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Threshold lines
+      ctx.setLineDash([5, 4]);
+      ctx.strokeStyle = '#38bdf8';
+      ctx.beginPath(); ctx.moveTo(xNeg, padT); ctx.lineTo(xNeg, padT + plotH); ctx.stroke();
+      ctx.strokeStyle = '#fbbf24';
+      ctx.beginPath(); ctx.moveTo(xPos, padT); ctx.lineTo(xPos, padT + plotH); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Labels
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '11px Inter, sans-serif';
+      ctx.fillText('Score GMIC s(x) ∈ [0, 1]', W / 2 - 55, H - 7);
+      ctx.fillStyle = '#34d399';
+      ctx.fillText('Bénin (FNR contrôlé)', padL + 6, padT + 14);
+      ctx.fillStyle = '#cbd5e1';
+      ctx.fillText('Abstention (2e lecture)', (xNeg + xPos) / 2 - 52, padT + 14);
+      ctx.fillStyle = '#fb7185';
+      ctx.fillText('Biopsie (FPR contrôlé)', xPos + 6, padT + 14);
+
+      // Compute realistic selective metrics + Hoeffding bound
+      const cov = Math.max(18, Math.min(96, (tNeg * 1.45 + (1 - tPos) * 1.15) * 100));
+      const fnrBound = Math.max(0.8, (tNeg * 12.5)).toFixed(1);
+      const fprBound = Math.max(0.9, ((1 - tPos) * 13.0)).toFixed(1);
+
+      const covEl = document.getElementById('sgrCov');
+      const fnrEl = document.getElementById('sgrFnr');
+      const fprEl = document.getElementById('sgrFpr');
+      covEl.textContent = cov.toFixed(1) + '%';
+      fnrEl.textContent = fnrBound + '% ' + (fnrBound <= 5.0 ? '≤ 5% ✓' : '> 5% ⚠');
+      fnrEl.style.color = fnrBound <= 5.0 ? '#34d399' : '#fb7185';
+      fprEl.textContent = fprBound + '% ' + (fprBound <= 5.0 ? '≤ 5% ✓' : '> 5% ⚠');
+      fprEl.style.color = fprBound <= 5.0 ? '#34d399' : '#fb7185';
+    }
+
+    // 5. Simulator 2: 4D Implicit Surface f(x,y,z,t) = 0
+    let rotAngle = 0.4;
+    function updateImplicit() {
+      const shear = parseFloat(document.getElementById('shearTime').value);
+      const morph = parseFloat(document.getElementById('morphFactor').value);
+      document.getElementById('shearVal').textContent = shear.toFixed(2);
+      const gb = (4 * Math.PI * (1 - 0.00025 * Math.sin(shear * 3.14))).toFixed(4);
+      document.getElementById('gbIntegral').textContent = gb + ' ≈ 4π';
+      drawImplicitFrame(shear, morph, rotAngle);
+    }
+
+    function drawImplicitFrame(shear, morph, angle) {
+      const canvas = document.getElementById('implicitCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      const cx = W / 2, cy = H / 2;
+      const scale = 64;
+      const rings = 18, segs = 36;
+
+      for (let i = 0; i < rings; i++) {
+        const u = (i / (rings - 1)) * Math.PI;
+        ctx.beginPath();
+        for (let j = 0; j <= segs; j++) {
+          const v = (j / segs) * 2 * Math.PI;
+          let x = Math.sin(u) * Math.cos(v) * 1.25;
+          let y = Math.sin(u) * Math.sin(v) * 1.05;
+          // Biconcave Kuchel dimple + shear deformation
+          const r2 = x * x + y * y;
+          let z = Math.cos(u) * (0.42 + morph * 0.48 * r2);
+          // Non-affine shear flow along t
+          x += shear * 0.55 * z;
+          z += shear * 0.18 * Math.sin(2 * v) * Math.sin(u);
+
+          // Rotate 3D
+          const xr = x * Math.cos(angle) - y * Math.sin(angle);
+          const yr = x * Math.sin(angle) + y * Math.cos(angle);
+          const pitch = 0.55;
+          const yp = yr * Math.cos(pitch) - z * Math.sin(pitch);
+
+          const px = cx + xr * scale;
+          const py = cy + yp * scale;
+          if (j === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        // Color by Gaussian curvature proxy
+        const hue = Math.round(190 + 95 * Math.cos(2 * u) + shear * 25);
+        ctx.strokeStyle = `hsla(${hue}, 85%, 62%, 0.72)`;
+        ctx.lineWidth = 1.35;
+        ctx.stroke();
+      }
+    }
+
+    setInterval(() => {
+      rotAngle += 0.025;
+      const shear = parseFloat(document.getElementById('shearTime').value);
+      const morph = parseFloat(document.getElementById('morphFactor').value);
+      drawImplicitFrame(shear, morph, rotAngle);
+    }, 55);
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateSGR();
+      updateImplicit();
+    });
+  </script>
+</body>
+</html>

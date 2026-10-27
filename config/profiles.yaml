@@ -1,0 +1,56 @@
+# Profil global du candidat et catégories d'offres recherchées
+candidate:
+  status: "Ingénieur diplômé (Jeune Diplômé / Junior)"
+  max_years_experience: 3
+  exclude_contracts:
+    - "Stage"
+    - "Stagiaire"
+    - "Intern"
+    - "Internship"
+    - "Alternance"
+    - "Alternant"
+    - "Apprentissage"
+    - "Apprenti"
+  accepted_contracts:
+    - "CDI"
+    - "VIE"
+    - "Thèse CIFRE / Doctorat"
+    - "CDD"
+    - "Graduate Program"
+
+# Les 5 profils / trajectoires cibles
+profiles:
+  DATA_SCIENCE_ENGINEER:
+    label: "🔬 Data Scientist / AI & ML Engineer"
+    enabled: true
+    description: >
+      Conception et entraînement de modèles (Machine Learning, Deep Learning, LLM, NLP,
+      Computer Vision, modélisation mathématique) ou ingénierie de données (Data Engineer).
+
+  AI_DEPLOY_MLOPS:
+    label: "🚀 AI Deployment / MLOps / Forward Deployed"
+    enabled: true
+    description: >
+      Mise en production de modèles IA, MLOps, AI Deployment Strategist, Forward Deployed Engineer,
+      Solutions Engineer/Architect IA, intégration d'agents et d'API LLM.
+
+  CONSULTANT_DATA_IA:
+    label: "💼 Consultant Data & IA / Transformation"
+    enabled: true
+    description: >
+      Conseil en stratégie Data/IA, accompagnement client sur des cas d'usage IA générative
+      ou analytiques, Technical Account Manager IA, chef de projet technique IA.
+
+  THESE_CIFRE_RD:
+    label: "🎓 Thèse CIFRE / Doctorat R&D IA"
+    enabled: true
+    description: >
+      Doctorat industriel (CIFRE) ou poste d'ingénieur de recherche R&D en intelligence
+      artificielle, mathématiques appliquées, algorithmes avancés.
+
+  VIE_INTERNATIONAL:
+    label: "🌍 V.I.E & International (Data / IA / Tech)"
+    enabled: true
+    description: >
+      Volontariat International en Entreprise (V.I.E), Graduate Program international,
+      ou poste Data/IA/Software à l'étranger ouvert aux jeunes ingénieurs diplômés.

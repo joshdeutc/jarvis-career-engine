@@ -1,0 +1,459 @@
+# Configuration Globale & Européenne des Entreprises :
+# France (Paris, Saclay, Grenoble, Lyon...), Allemagne (Munich, Berlin, Freiburg...),
+# Suisse (Zurich, Genève, Lausanne...), Pays-Bas (Amsterdam), UK (Londres), Suède (Stockholm) & Big Tech
+companies:
+  # =========================================================================
+  # 1. CENTRES DE RECHERCHE FRANÇAIS & EUROPÉENS (CEA, Inria, CERN Genève)
+  # =========================================================================
+  - name: "CEA (Commissariat à l'Énergie Atomique)"
+    ats: "cea"
+    enabled: true
+    profile_facets: [1898, 1918, 1915]
+    contract_facets: [577, 578]
+    keywords:
+      - "recherche opérationnelle"
+      - "optimisation"
+      - "stochastique"
+      - "statistique"
+      - "apprentissage"
+      - "confiance"
+      - "intelligence artificielle"
+      - "machine learning"
+      - "deep learning"
+      - "vision"
+      - "llm"
+      - "modélisation"
+      - "simulation"
+      - "mathématiques"
+      - "data"
+      - "hpc"
+      - "pilote"
+      - "chef de projet"
+      - "architecte"
+      - "ingénieur"
+
+  - name: "Inria (Institut National de Recherche en Informatique et Automatique)"
+    ats: "inria"
+    enabled: true
+    keywords:
+      - "optimization"
+      - "optimisation"
+      - "stochastic"
+      - "statistique"
+      - "learning"
+      - "apprentissage"
+      - "ia"
+      - "ai"
+      - "data"
+      - "vision"
+      - "llm"
+      - "model"
+      - "modélisation"
+      - "simulation"
+      - "ingénieur"
+      - "engineer"
+      - "phd"
+      - "thèse"
+
+  - name: "CERN (Genève, Suisse — Graduate Engineering & Research)"
+    ats: "smartrecruiters"
+    company_id: "CERN"
+    country_filter: ["ch", "fr"]
+    enabled: true
+    keywords: []
+
+  # =========================================================================
+  # 2. LEADERS IA & DEEP TECH EN FRANCE, ALLEMAGNE, SUISSE & EUROPE
+  # =========================================================================
+  - name: "Mistral AI (Paris, Londres)"
+    ats: "ashby"
+    board: "mistral.ai"
+    location_keywords: ["Paris", "France", "London", "UK", "Zurich", "Munich", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Isomorphic Labs (DeepMind AI Drug Discovery — Londres & Lausanne, Suisse)"
+    ats: "greenhouse"
+    board_token: "isomorphiclabs"
+    location_keywords: ["London", "Lausanne", "Switzerland", "Suisse", "UK", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Helsing (AI Defense — Paris, Munich, Berlin, Londres)"
+    ats: "greenhouse"
+    board_token: "helsing"
+    location_keywords: ["Paris", "France", "Munich", "München", "Berlin", "Germany", "London", "UK", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "DeepL (Cologne, Berlin, Munich, Londres)"
+    ats: "ashby"
+    board: "deepl"
+    location_keywords: ["Germany", "Berlin", "Cologne", "Köln", "Munich", "London", "Europe", "Remote"]
+    enabled: true
+    keywords: []
+
+  - name: "Black Forest Labs (FLUX AI — Freiburg, Allemagne & Zurich)"
+    ats: "ashby"
+    board: "black-forest-labs"
+    location_keywords: ["Freiburg", "Germany", "Berlin", "Munich", "Zurich", "Switzerland", "Europe", "Remote"]
+    enabled: true
+    keywords: []
+
+  - name: "Dust (Paris)"
+    ats: "ashby"
+    board: "dust"
+    location_keywords: ["Paris", "France", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "PhotoRoom (AI Computer Vision — Paris)"
+    ats: "ashby"
+    board: "photoroom"
+    location_keywords: ["Paris", "France", "Europe", "Remote"]
+    enabled: true
+    keywords: []
+
+  - name: "Gladia (Audio AI & LLMs — Paris)"
+    ats: "ashby"
+    board: "gladia"
+    location_keywords: ["Paris", "France", "Europe", "Remote"]
+    enabled: true
+    keywords: []
+
+  - name: "Synthesia (Londres, Munich, Zurich, Amsterdam)"
+    ats: "ashby"
+    board: "synthesia"
+    location_keywords: ["London", "Munich", "Zurich", "Switzerland", "Amsterdam", "Germany", "Europe", "Remote"]
+    enabled: true
+    keywords: []
+
+  - name: "ElevenLabs (Londres, Paris, Varsovie, Europe)"
+    ats: "ashby"
+    board: "elevenlabs"
+    location_keywords: ["London", "Paris", "France", "Germany", "Zurich", "Warsaw", "Europe", "Remote"]
+    enabled: true
+    keywords: []
+
+  - name: "OpenAI (Paris, Londres, Zurich, Munich, Dublin)"
+    ats: "ashby"
+    board: "openai"
+    location_keywords: ["Paris", "France", "London", "Dublin", "Zurich", "Switzerland", "Munich", "Germany", "EMEA", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Anthropic (Londres, Paris, Zurich, Dublin)"
+    ats: "greenhouse"
+    board_token: "anthropic"
+    location_keywords: ["London", "Paris", "France", "Dublin", "Zurich", "Switzerland", "Munich", "Germany", "EMEA", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Cohere (Londres, Paris, Europe)"
+    ats: "ashby"
+    board: "cohere"
+    location_keywords: ["London", "Paris", "France", "Germany", "Zurich", "Europe", "EMEA", "Remote"]
+    enabled: true
+    keywords: []
+
+  - name: "Scale AI (Londres, Paris, Europe)"
+    ats: "greenhouse"
+    board_token: "scaleai"
+    location_keywords: ["London", "Paris", "France", "Germany", "Europe", "EMEA"]
+    enabled: true
+    keywords: []
+
+  - name: "Sierra AI (Londres, Paris, Europe)"
+    ats: "ashby"
+    board: "sierra"
+    location_keywords: ["London", "Paris", "France", "Germany", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Harvey AI (Londres, Paris, Allemagne)"
+    ats: "ashby"
+    board: "harvey"
+    location_keywords: ["London", "Paris", "France", "Germany", "Munich", "Berlin", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Perplexity AI (Londres, Paris, Europe)"
+    ats: "ashby"
+    board: "perplexity"
+    location_keywords: ["London", "Paris", "France", "Germany", "Zurich", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Lovable (Stockholm, Londres, Europe)"
+    ats: "ashby"
+    board: "lovable"
+    location_keywords: ["Stockholm", "Sweden", "London", "Paris", "Berlin", "Munich", "Europe", "Remote"]
+    enabled: true
+    keywords: []
+
+  - name: "n8n (AI Workflow Automation — Berlin, Allemagne & Europe)"
+    ats: "ashby"
+    board: "n8n"
+    location_keywords: ["Berlin", "Germany", "Munich", "Paris", "London", "Amsterdam", "Zurich", "Europe", "Remote"]
+    enabled: true
+    keywords: []
+
+  # =========================================================================
+  # 3. QUANT TRADING, RECHERCHE OPÉRATIONNELLE & FINTECH (EU / CH / DE / NL / UK / FR)
+  # =========================================================================
+  - name: "Palantir Technologies (Paris, Londres, Munich, Zurich — Forward Deployed & AI)"
+    ats: "lever"
+    board: "palantir"
+    location_keywords: ["Paris", "France", "London", "UK", "Munich", "Germany", "Zurich", "Switzerland", "Amsterdam", "Madrid", "Stockholm"]
+    enabled: true
+    keywords: []
+
+  - name: "Jane Street (Quant & Trading — Londres, Amsterdam)"
+    ats: "greenhouse"
+    board_token: "janestreet"
+    location_keywords: ["London", "Amsterdam", "Europe", "UK", "Netherlands"]
+    enabled: true
+    keywords: []
+
+  - name: "IMC Trading (Quant & Market Making — Amsterdam, Londres)"
+    ats: "greenhouse"
+    board_token: "imc"
+    location_keywords: ["Amsterdam", "Netherlands", "London", "UK", "Europe", "Zurich", "Munich"]
+    enabled: true
+    keywords: []
+
+  - name: "Celonis (Process Mining, Optimisation & RO — Munich, Paris, Madrid, Londres)"
+    ats: "greenhouse"
+    board_token: "celonis"
+    location_keywords: ["Munich", "München", "Berlin", "Germany", "Paris", "France", "London", "Madrid", "Amsterdam", "Zurich"]
+    enabled: true
+    keywords: []
+
+  - name: "Adyen (Paris, Amsterdam, Londres, Berlin, Madrid)"
+    ats: "greenhouse"
+    board_token: "adyen"
+    location_keywords: ["Paris", "France", "Amsterdam", "Netherlands", "London", "Berlin", "Munich", "Germany", "Madrid"]
+    enabled: true
+    keywords: []
+
+  - name: "Stripe (Paris, Dublin, Londres, Berlin, Amsterdam)"
+    ats: "greenhouse"
+    board_token: "stripe"
+    location_keywords: ["Paris", "France", "Dublin", "London", "Berlin", "Munich", "Germany", "Amsterdam", "Zurich", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "N26 (Berlin, Allemagne & Europe)"
+    ats: "greenhouse"
+    board_token: "n26"
+    location_keywords: ["Berlin", "Germany", "Munich", "Paris", "Madrid", "Milan", "Vienna", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Ramp"
+    ats: "ashby"
+    board: "ramp"
+    location_keywords: ["London", "Paris", "Europe", "New York", "San Francisco"]
+    enabled: true
+    keywords: []
+
+  # =========================================================================
+  # 4. ÉDITEURS TECH & SCALE-UPS FRANCE, ALLEMAGNE, SUISSE & EUROPE
+  # =========================================================================
+  - name: "Databricks (Paris, Londres, Amsterdam, Munich, Zurich)"
+    ats: "greenhouse"
+    board_token: "databricks"
+    location_keywords: ["Paris", "France", "London", "Amsterdam", "Munich", "Berlin", "Germany", "Zurich", "Switzerland", "Dublin"]
+    enabled: true
+    keywords: []
+
+  - name: "Datadog (Paris, Londres, Madrid, Amsterdam, Dublin)"
+    ats: "greenhouse"
+    board_token: "datadog"
+    location_keywords: ["Paris", "France", "London", "Madrid", "Dublin", "Amsterdam", "Munich", "Zurich"]
+    enabled: true
+    keywords: []
+
+  - name: "Dataiku (Paris, Londres, Amsterdam, Munich)"
+    ats: "greenhouse"
+    board_token: "dataiku"
+    location_keywords: ["Paris", "France", "London", "Amsterdam", "Munich", "Frankfurt", "Germany", "Zurich", "EMEA"]
+    enabled: true
+    keywords: []
+
+  - name: "Algolia (AI Search — Paris, Londres, Europe)"
+    ats: "greenhouse"
+    board_token: "algolia"
+    location_keywords: ["Paris", "France", "London", "Dublin", "Berlin", "Munich", "Amsterdam", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Doctolib (Paris, Nantes, Berlin, Milan)"
+    ats: "greenhouse"
+    board_token: "doctolib"
+    location_keywords: ["Paris", "France", "Nantes", "Berlin", "Munich", "Germany", "Milan"]
+    enabled: true
+    keywords: []
+
+  - name: "Mirakl (Paris, Bordeaux, Londres, Munich)"
+    ats: "greenhouse"
+    board_token: "mirakl"
+    location_keywords: ["Paris", "Bordeaux", "France", "London", "Munich", "Germany"]
+    enabled: true
+    keywords: []
+
+  - name: "Aircall (Paris, Londres, Berlin, Madrid)"
+    ats: "lever"
+    board: "aircall"
+    location_keywords: ["Paris", "France", "London", "Berlin", "Munich", "Madrid", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "BlaBlaCar (Paris, France)"
+    ats: "lever"
+    board: "blablacar"
+    location_keywords: ["Paris", "France", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "GetYourGuide (Berlin, Allemagne & Zurich, Suisse)"
+    ats: "greenhouse"
+    board_token: "getyourguide"
+    location_keywords: ["Berlin", "Munich", "Germany", "Zurich", "Zürich", "Switzerland", "Paris", "London"]
+    enabled: true
+    keywords: []
+
+  - name: "HelloFresh (Data, Optimisation Supply Chain & ML — Berlin)"
+    ats: "greenhouse"
+    board_token: "hellofresh"
+    location_keywords: ["Berlin", "Munich", "Germany", "Amsterdam", "London", "Paris", "Zurich"]
+    enabled: true
+    keywords: []
+
+  - name: "Spotify (Stockholm, Londres, Berlin, Paris)"
+    ats: "lever"
+    board: "spotify"
+    location_keywords: ["Stockholm", "Sweden", "London", "UK", "Berlin", "Munich", "Paris", "Amsterdam", "Europe"]
+    enabled: true
+    keywords: []
+
+  - name: "Cloudflare (Paris, Londres, Munich, Lisbonne, Amsterdam)"
+    ats: "greenhouse"
+    board_token: "cloudflare"
+    location_keywords: ["Paris", "France", "London", "Lisbon", "Munich", "Berlin", "Germany", "Amsterdam", "Dublin", "Zurich"]
+    enabled: true
+    keywords: []
+
+  - name: "Elastic (Paris, Londres, Amsterdam, Munich, Suisse)"
+    ats: "greenhouse"
+    board_token: "elastic"
+    location_keywords: ["Paris", "France", "London", "Amsterdam", "Munich", "Berlin", "Germany", "Zurich", "Switzerland", "EMEA"]
+    enabled: true
+    keywords: []
+
+  - name: "Grafana Labs (France, Allemagne, Suisse, Pays-Bas, UK)"
+    ats: "greenhouse"
+    board_token: "grafanalabs"
+    location_keywords: ["France", "Paris", "Germany", "Berlin", "Munich", "Switzerland", "Zurich", "Netherlands", "London", "Spain", "EMEA"]
+    enabled: true
+    keywords: []
+
+  - name: "MongoDB (Paris, Londres, Dublin, Munich, Zurich, Amsterdam)"
+    ats: "greenhouse"
+    board_token: "mongodb"
+    location_keywords: ["Paris", "France", "London", "Dublin", "Munich", "Berlin", "Germany", "Zurich", "Switzerland", "Amsterdam", "Barcelona"]
+    enabled: true
+    keywords: []
+
+  - name: "Airbnb (Paris, Londres, Berlin, Dublin, Milan)"
+    ats: "greenhouse"
+    board_token: "airbnb"
+    location_keywords: ["Paris", "France", "London", "Dublin", "Berlin", "Germany", "Milan", "Barcelona"]
+    enabled: true
+    keywords: []
+
+  # =========================================================================
+  # 5. GRANDS GROUPES ROYAUX & INDUSTRIE R&D (France, Allemagne, Suisse)
+  # =========================================================================
+  - name: "Thales (France & Europe)"
+    ats: "workday"
+    tenant: "thales"
+    site: "Careers"
+    max_age_days: 21
+    enabled: true
+    keywords:
+      - "recherche opérationnelle"
+      - "optimisation"
+      - "algorithme"
+      - "intelligence artificielle"
+      - "machine learning"
+      - "deep learning"
+      - "data scientist"
+      - "architecte"
+      - "chef de projet ia"
+
+  - name: "Hermès"
+    ats: "oracle_hcm"
+    instance: "fa-eoic-saasfaprod1"
+    site_number: "CX_12001"
+    portal_url: "https://talents.hermes.com/en/sites/CX/job"
+    enabled: true
+    keywords:
+      - "recherche opérationnelle"
+      - "optimisation"
+      - "data scientist"
+      - "intelligence artificielle"
+      - "machine learning"
+      - "chef de projet"
+      - "architecte"
+
+  - name: "Bosch Group (R&D IA, Optimisation & Robotique — Allemagne, Suisse, France)"
+    ats: "smartrecruiters"
+    company_id: "BoschGroup"
+    country_filter: ["fr", "de", "ch"]
+    enabled: true
+    keywords:
+      - "Artificial Intelligence"
+      - "Machine Learning"
+      - "Data Scientist"
+      - "Computer Vision"
+      - "Optimization"
+      - "Operations Research"
+      - "Research Engineer"
+      - "Solutions Architect"
+      - "Graduate"
+      - "Junior"
+
+  - name: "Ubisoft (R&D IA, Simulation, Data & Graph — Paris, Lyon, Annecy, Bordeaux, Berlin)"
+    ats: "smartrecruiters"
+    company_id: "Ubisoft2"
+    country_filter: ["fr", "de"]
+    enabled: true
+    keywords:
+      - "AI"
+      - "Machine Learning"
+      - "Data Scientist"
+      - "Research"
+      - "Simulation"
+      - "Optimization"
+      - "Junior"
+      - "Graduate"
+      - "C++"
+      - "Python"
+
+  - name: "Devoteam (Filet de sécurité : Conseil, Architecture, PM & Pre-Sales — FR, DE, CH, LU)"
+    ats: "smartrecruiters"
+    company_id: "Devoteam"
+    country_filter: ["fr", "de", "ch", "lu"]
+    enabled: true
+    keywords:
+      - "Consultant IA"
+      - "Data Scientist"
+      - "ML Engineer"
+      - "AI Engineer"
+      - "Architecte Data"
+      - "Solutions Architect"
+      - "Chef de projet Data"
+      - "Product Owner"
+      - "Pre-sales"
+      - "Junior"

@@ -1,0 +1,30 @@
+# Environment & Secrets
+.env
+*.pem
+*.key
+
+# Local Databases, Caches & Personal Corpus
+jarvis_brain.db
+jarvis_brain.db-*
+eval_cache.json
+seen_jobs.json
+audit_rejets_detaille.json
+offres_retenues.html
+joshua_profile_corpus/
+graphify-out/
+project_document.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
